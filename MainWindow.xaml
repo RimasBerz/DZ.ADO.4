@@ -1,0 +1,182 @@
+﻿<Window x:Class="ADO1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ADO1"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Closed="Window_Closed"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!-- Monitor -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                   Content="Монитор" FontSize="20" FontWeight="DemiBold"
+                   HorizontalAlignment="Center"/>
+            <Label Grid.Column="0" Grid.Row="1"
+                   Content="Подключение" />
+            <Label Grid.Column="1" Grid.Row="1"
+                   x:Name="MonitorConnection"/>
+            <Label Grid.Column="0" Grid.Row="2"
+                   Content="Отделов" />
+            <Label Grid.Column="1" Grid.Row="2"
+                   x:Name="MonitorDepartments"/>
+            <Label Grid.Column="0" Grid.Row="3"
+                   Content="Товаров" />
+            <Label Grid.Column="1" Grid.Row="3"
+                   x:Name="MonitorProducts"/>
+            <Label Grid.Column="0" Grid.Row="4"
+                   Content="Сотрудников" />
+            <Label Grid.Column="1" Grid.Row="4"
+                   x:Name="MonitorManagers"/>
+            <Label Grid.Column="0" Grid.Row="5"
+                   Content="Продаж" />
+            <Label Grid.Column="1" Grid.Row="5"
+                   x:Name="MonitorSales"/>
+        </Grid>
+        <!-- End Monitor -->
+
+        <!-- Daily Statistics -->
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                   Content="Статистика за день" 
+                   FontSize="20" FontWeight="DemiBold"
+                   HorizontalAlignment="Center"/>
+
+            <Label Grid.Column="0" Grid.Row="1"
+                   Content="Продаж (чеков)" />
+            <Label Grid.Column="1" Grid.Row="1"
+                   x:Name="StatTotalSales"/>
+
+            <Label Grid.Column="0" Grid.Row="2"
+                   Content="Продаж (товаров)" />
+            <Label Grid.Column="1" Grid.Row="2"
+                   x:Name="StatTotalProducts"/>
+
+            <Label Grid.Column="0" Grid.Row="3"
+                   Content="Продаж (грн)" />
+            <Label Grid.Column="1" Grid.Row="3"
+                   x:Name="StatTotalMoney"/>
+        </Grid>
+
+        
+        <!--<Grid Grid.Column="2" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                   Content="Статистика за день" 
+                   FontSize="20" FontWeight="DemiBold"
+                   HorizontalAlignment="Center"/>
+
+            <Label Grid.Column="0" Grid.Row="1"
+                   Content="Топ менеджер " />
+            <Label Grid.Column="1" Grid.Row="1"
+                   x:Name="StatTotalManagereD"/>
+
+            <Label Grid.Column="0" Grid.Row="2"
+                   Content="Топ отдел за день" />
+            <Label Grid.Column="1" Grid.Row="2"
+                   x:Name="StatTotalDepartmentD"/>
+
+            <Label Grid.Column="0" Grid.Row="3"
+                   Content="Топ товар (чеки)" />
+            <Label Grid.Column="1" Grid.Row="3"
+                   x:Name="StatTotalProductsD"/>
+        </Grid>-->
+        
+        
+
+
+        <StackPanel Grid.Row="0" Grid.Column="1"
+            Orientation="Vertical">
+            <Label Content="Отделы" FontSize="20" FontWeight="DemiBold"
+                   HorizontalAlignment="Center"/>
+            <TextBlock x:Name="DepartmentCell"/>
+        </StackPanel>
+
+
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+
+            <Label Content="Товары" FontSize="20" FontWeight="DemiBold"
+                   HorizontalAlignment="Center"/>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          MaxHeight="180">
+                <TextBlock x:Name="ProductsCell" />
+            </ScrollViewer>
+        </StackPanel>
+
+        <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical">
+
+            <Label Content="Сотрудники" FontSize="20" FontWeight="DemiBold"
+                   HorizontalAlignment="Center"/>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          MaxHeight="180">
+                <TextBlock x:Name="ManagersCell" />
+            </ScrollViewer>
+            
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical">
+
+            <Label Content="Сводка продаж" FontSize="20" FontWeight="DemiBold"
+                   HorizontalAlignment="Center"/>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          MaxHeight="180">
+                <TextBlock x:Name="ProdName" />
+            </ScrollViewer>
+        </StackPanel>
+
+
+
+
+    </Grid>
+</Window>
